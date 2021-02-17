@@ -6,7 +6,6 @@ const router=express.Router();
 
 //Get Posts
 router.get('/',async (req,res)=>{
-    //res.send('helloooooo');
     const Posts=await posts.find({});
     res.json(Posts);
 });
@@ -14,7 +13,6 @@ router.get('/',async (req,res)=>{
 router.post('/', async (req,res)=>{
     console.log("-----",req.body)
     const Post=new posts({
-        //id:courses.length+1,
         text:req.body.text,
         //courseCode:req.body.courseCode
     });
@@ -32,9 +30,6 @@ router.delete('/:id',async (req,res)=>{
    res.send(removedPost);
 });
 router.patch('/:id/:text',async(req,res)=>{
-    //console.log('put request submitted')
-    // const index=await 
-    console.log('im innn');
     
     console.log(req.params.text);
     const index=await posts.findByIdAndUpdate(req.params.id,{text:req.params.text});
@@ -51,8 +46,7 @@ router.patch('/:id/:text',async(req,res)=>{
     //     });
     console.log(index,"--index--");
     res.send(index);
-    //find(p =>p._id === req.params.id);
-    //index.text=req.params.text;
+
 
 })
 //router.put()
