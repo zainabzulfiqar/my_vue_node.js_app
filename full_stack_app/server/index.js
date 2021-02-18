@@ -15,14 +15,13 @@ const mongoose=require('mongoose');
 const postsRoutes=require('./routes/api/posts.js');
 app.use('/api/posts',postsRoutes);
 const conn=config.DB_Connection;
-console.log(conn);
+
 mongoose.connect(
     conn,
    
     {useNewUrlParser:true},
     ()=>console.log('connected to Database....')
 );
-console.log( conn);
 
 const port=process.env.PORT || 3000;
 app.listen(port,()=>console.log(`Listening on port ${port}...`));
